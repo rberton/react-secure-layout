@@ -1,0 +1,10 @@
+.git
+.vscode
+.eslintignore
+.gitignore
+LICENSE
+.env
+build
+node_modules
+.gitattributes
+yarn.lock
