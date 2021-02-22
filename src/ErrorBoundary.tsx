@@ -1,15 +1,7 @@
-import React, { Component, ErrorInfo, ReactNode } from 'react'
+import React, { Component, ReactNode, ErrorInfo } from 'react'
+import * as k64 from './@types'
 import styled from 'styled-components'
-
-interface Props {
-  children?: ReactNode
-}
-
-interface State {
-  error: Error | null
-  info: ErrorInfo | null
-}
-class ErrorBoundary extends Component<Props, State> {
+class ErrorBoundary extends Component<k64.IBoundaryProps, k64.IBoundaryState> {
   state = {
     error: null,
     info: null,

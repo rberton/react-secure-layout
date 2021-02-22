@@ -1,29 +1,25 @@
 import React from 'react'
+import { Router } from '@reach/router'
 import logo from './logo.svg'
 import './App.css'
-import { Routes } from './dataStructure'
-interface IProps {
-  path: Routes
-}
+import Authentication from './features/authentication/Authentication'
+import { K64, K64Header, K64Logo, K64Main } from './styled-components'
+import { NotFound } from './NotFound'
 
-const App: React.FC<IProps> = ({ path }) => {
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <K64>
+      <K64Header>
+        <K64Logo src={logo} alt="logo" />
+      </K64Header>
+      <K64Main>
+        <Router>
+          <Authentication path="/" />
+          <Authentication path="/signup" />
+          <NotFound default />
+        </Router>
+      </K64Main>
+    </K64>
   )
 }
 
