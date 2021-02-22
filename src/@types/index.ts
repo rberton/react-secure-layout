@@ -1,4 +1,9 @@
-import { ErrorInfo, ReactNode } from 'react'
+import {
+  ErrorInfo,
+  ReactNode,
+  ChangeEventHandler,
+  FormEventHandler,
+} from 'react'
 
 export interface IBoundaryProps {
   children?: ReactNode
@@ -44,6 +49,21 @@ interface IAuthentication {
   status: Status
   errors: IErrors
   user: IUser
+  surname: string
+  surnameChange: ChangeEventHandler
+  firstname: string
+  firstnameChange: ChangeEventHandler
+  lastname: string
+  lastnameChange: ChangeEventHandler
+  email: string
+  emailChange: ChangeEventHandler
+  password: string
+  passwordChange: ChangeEventHandler
+  confirm: string
+  confirmChange: ChangeEventHandler
+  loginSubmit: FormEventHandler
+  signupSubmit: FormEventHandler
+  logoutSubmit: FormEventHandler
 }
 
 export interface IAuthenticationOptions {
