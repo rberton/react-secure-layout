@@ -56,6 +56,7 @@ const Authentication: React.FC<k64.IAuthenticationOptions> = ({ path }) => {
             >
               <Grid item>
                 <K64TextField
+                  data-cy="surname-input-text"
                   name="surname"
                   label={'Surname'}
                   value={surname}
@@ -74,6 +75,7 @@ const Authentication: React.FC<k64.IAuthenticationOptions> = ({ path }) => {
               </Grid>
               <Grid item>
                 <K64TextField
+                  data-cy="password-input-text"
                   type="password"
                   name="password"
                   label={'Password'}
@@ -125,6 +127,7 @@ const Authentication: React.FC<k64.IAuthenticationOptions> = ({ path }) => {
             >
               <Grid item>
                 <K64TextField
+                  data-cy="firstname-input-text"
                   name="firstname"
                   label={'Firstname'}
                   value={firstname}
@@ -143,6 +146,7 @@ const Authentication: React.FC<k64.IAuthenticationOptions> = ({ path }) => {
               </Grid>
               <Grid item>
                 <K64TextField
+                  data-cy="lastname-input-text"
                   name="lastname"
                   label={'Lastname'}
                   value={lastname}
@@ -161,6 +165,7 @@ const Authentication: React.FC<k64.IAuthenticationOptions> = ({ path }) => {
               </Grid>
               <Grid item>
                 <K64TextField
+                  data-cy="surname-input-text"
                   name="surname"
                   label={'Surname'}
                   value={surname}
@@ -186,6 +191,7 @@ const Authentication: React.FC<k64.IAuthenticationOptions> = ({ path }) => {
             >
               <Grid item>
                 <K64TextField
+                  data-cy="email-input-text"
                   type="email"
                   name="email"
                   label={'Email'}
@@ -205,6 +211,7 @@ const Authentication: React.FC<k64.IAuthenticationOptions> = ({ path }) => {
               </Grid>
               <Grid item>
                 <K64TextField
+                  data-cy="password-input-text"
                   type="password"
                   name="password"
                   label={'Password'}
@@ -224,6 +231,7 @@ const Authentication: React.FC<k64.IAuthenticationOptions> = ({ path }) => {
               </Grid>
               <Grid item>
                 <K64TextField
+                  data-cy="confirm-input-text"
                   type="password"
                   name="confirm"
                   label={'Confirm'}
@@ -260,7 +268,11 @@ const Authentication: React.FC<k64.IAuthenticationOptions> = ({ path }) => {
       {/* Écran de déconnexion */}
 
       {status === k64.Status.success && known && connected && (
-        <K64ConnectionForm autoComplete="off" onSubmit={logoutSubmit}>
+        <K64ConnectionForm
+          autoComplete="off"
+          onSubmit={logoutSubmit}
+          data-cy="disconnect-form"
+        >
           <Grid container>
             <Grid item>
               <Alert severity="success">
