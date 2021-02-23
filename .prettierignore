@@ -5,6 +5,8 @@
 LICENSE
 .env
 build
+coverage
+.nyc_output
 node_modules
 .gitattributes
 yarn.lock
