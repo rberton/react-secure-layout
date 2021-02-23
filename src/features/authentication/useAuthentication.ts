@@ -151,59 +151,89 @@ const useAuthentication: k64.ReturnAuthenticationProps = ({ path }) => {
   const loginSubmit = async (event: FormEvent) => {
     event.preventDefault()
     setStatus(k64.Status.loading)
-    const response = await new Promise((resolve) => {
-      setTimeout(() => {
-        resolve('ok')
+    const getToken = (loginParams: k64.ILoginParams) => {
+      setTimeout((err) => {
+        if (loginParams.surname !== '' && loginParams.password !== '') {
+          login.next('ok')
+        } else {
+          login.throw(err)
+        }
       }, 1000)
-    })
-    if (response === 'ok') {
-      setUser({
-        avatar: '',
-        confirm: 'true',
-        email,
-        firstname,
-        lastname,
-        password,
-        surname,
-        token: 'token',
-      })
-      setStatus(k64.Status.success)
-      setConnection(true)
-      setKnowledge(true)
     }
+    const loginGenerator = function* (
+      loginParams: k64.ILoginParams
+    ): Generator<void, void, unknown> {
+      try {
+        const response = yield getToken(loginParams)
+        if (response === 'ok') {
+          setUser({
+            avatar: '',
+            confirm: 'true',
+            email,
+            firstname,
+            lastname,
+            password,
+            surname,
+            token: 'token',
+          })
+          setStatus(k64.Status.success)
+          setConnection(true)
+          setKnowledge(true)
+        }
+      } catch (err: unknown) {
+        throw err
+      }
+    }
+    const login = loginGenerator({ surname, password })
+    login.next()
   }
-  const signupSubmit = async (event: FormEvent) => {
+  const signupSubmit = (event: FormEvent) => {
     event.preventDefault()
     setStatus(k64.Status.loading)
-    const isValid = validateSignup({
+    const signupParams = {
       firstname,
       lastname,
       surname,
       email,
       password,
       confirm,
-    })
-    if (isValid) {
-      const response = await new Promise((resolve) => {
-        setTimeout(() => {
-          resolve('ok')
+    }
+    if (validateSignup(signupParams)) {
+      const getToken = (signupParams: k64.ISignupParams) => {
+        setTimeout((err) => {
+          if (signupParams.surname !== '' && signupParams.password !== '') {
+            signup.next('ok')
+          } else {
+            signup.throw(err)
+          }
         }, 1000)
-      })
-      if (response === 'ok') {
-        setUser({
-          avatar: '',
-          confirm: 'true',
-          email,
-          firstname,
-          lastname,
-          password,
-          surname,
-          token: 'token',
-        })
-        setStatus(k64.Status.success)
-        setConnection(true)
-        setKnowledge(true)
       }
+      const signupGenerator = function* (
+        signupParams: k64.ISignupParams
+      ): Generator<void, void, unknown> {
+        try {
+          const response = yield getToken(signupParams)
+          if (response === 'ok') {
+            setUser({
+              avatar: '',
+              confirm: 'true',
+              email,
+              firstname,
+              lastname,
+              password,
+              surname,
+              token: 'token',
+            })
+            setStatus(k64.Status.success)
+            setConnection(true)
+            setKnowledge(true)
+          }
+        } catch (err: unknown) {
+          throw err
+        }
+      }
+      const signup = signupGenerator(signupParams)
+      signup.next()
     } else {
       setSignupSubmitErrors({
         firstname,

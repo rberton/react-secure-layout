@@ -73,3 +73,17 @@ export interface IAuthenticationOptions {
 export type ReturnAuthenticationProps = (
   options: IAuthenticationOptions
 ) => IAuthentication
+
+export interface ILoginParams {
+  surname: string
+  password: string
+}
+
+export interface ISignupParams {
+  firstname: string
+  lastname: string
+  surname: string
+  email: string
+  password: string
+  confirm: string
+}
