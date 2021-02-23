@@ -2,11 +2,11 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { RecoilRoot } from 'recoil'
 import RecoilizeDebugger from 'recoilize'
-import './index.css'
 // import * as serviceWorker from './serviceWorker'
 import App from './App'
 import ErrorBoundary from './ErrorBoundary'
 import reportWebVitals from './reportWebVitals'
+import './index.css'
 
 ReactDOM.render(
   <React.StrictMode>

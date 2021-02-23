@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import Authentication from '../features/authentication/Authentication'
+import Authentication from './Authentication'
 import { RecoilRoot } from 'recoil'
 import { Router } from '@reach/router'
 

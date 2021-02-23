@@ -26,7 +26,7 @@ import {
   lastnameAtom,
   emailAtom,
   confirmAtom,
-} from './atoms'
+} from './Authentication.atoms'
 
 const useAuthentication: k64.ReturnAuthenticationProps = ({ path }) => {
   const connected = useRecoilValue(connectionAtom)

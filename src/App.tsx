@@ -1,9 +1,8 @@
 import React from 'react'
 import { Router } from '@reach/router'
 import logo from './logo.svg'
-import './App.css'
 import Authentication from './features/authentication/Authentication'
-import { K64, K64Header, K64Logo, K64Main } from './styled-components'
+import { K64, K64Header, K64Logo, K64Main } from './App.style'
 import { NotFound } from './NotFound'
 
 const App: React.FC = () => {

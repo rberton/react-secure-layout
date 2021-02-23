@@ -1,7 +1,7 @@
 import React from 'react'
 import * as k64 from '../../@types'
 import useAuthentication from './useAuthentication'
-import { Grid, Paper, Typography } from '@material-ui/core'
+import { Grid, Typography } from '@material-ui/core'
 import { Alert, AlertTitle } from '@material-ui/lab'
 import {
   K64ConnectionForm,
@@ -9,7 +9,7 @@ import {
   K64Button,
   K64Link,
   K64Loop,
-} from '../../styled-components'
+} from './Authentication.style'
 
 const Authentication: React.FC<k64.IAuthenticationOptions> = ({ path }) => {
   const {
@@ -37,7 +37,7 @@ const Authentication: React.FC<k64.IAuthenticationOptions> = ({ path }) => {
   })
 
   return (
-    <Paper elevation={3}>
+    <article>
       {/* Écran de login */}
 
       {(status === k64.Status.idle || status === k64.Status.failed) &&
@@ -182,13 +182,6 @@ const Authentication: React.FC<k64.IAuthenticationOptions> = ({ path }) => {
                   }
                 />
               </Grid>
-            </Grid>
-            <Grid
-              container
-              direction="row"
-              justify="center"
-              alignItems="center"
-            >
               <Grid item>
                 <K64TextField
                   data-cy="email-input-text"
@@ -290,7 +283,7 @@ const Authentication: React.FC<k64.IAuthenticationOptions> = ({ path }) => {
       {/* Chargement */}
 
       {status === k64.Status.loading && <K64Loop />}
-    </Paper>
+    </article>
   )
 }
 
