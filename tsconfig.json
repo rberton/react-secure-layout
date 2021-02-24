@@ -17,5 +17,10 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src", "cypress", "node_modules/cypress"]
+  "include": ["src", "cypress", "node_modules/cypress"],
+  "typedocOptions": {
+    "entryPoints": ["src"],
+    "exclude": "src/*?(react-app-env|reportWebVitals|serviceWorker|setupTests|.test).ts",
+    "out": "docs"
+  }
 }
