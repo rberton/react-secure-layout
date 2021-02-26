@@ -21,6 +21,7 @@
   "typedocOptions": {
     "entryPoints": ["src"],
     "exclude": "src/*?(react-app-env|reportWebVitals|serviceWorker|setupTests|.test).ts",
-    "out": "docs"
+    "out": "docs",
+    "name": "Documentation",
   }
 }

@@ -5,6 +5,7 @@
 LICENSE
 .env
 build
+docs
 coverage
 .nyc_output
 node_modules
